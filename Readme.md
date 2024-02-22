@@ -1,5 +1,6 @@
 # LegalBench Data
 
+
 ## 2 Summary of the problem
 
 LegalBench is a benchmark consisting of different legal reasoning tasks. Each task has
