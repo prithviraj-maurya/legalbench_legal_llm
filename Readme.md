@@ -1,5 +1,4 @@
-# LegalBench Data
-
+![image info](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/snips/legalbench_logo.png)
 
 ## Summary of the problem
 
@@ -15,9 +14,6 @@ embedding with Gradient Boosting, BERT for classification, and transformer model
 text generation. Future steps involve exploring rule-based approaches and knowledge
 graphs to further enhance the understanding and analysis of legal contracts.
 
-```
-Figure 1: LegalBench
-```
 LegalBench tasks are organized into six categories based on the type of legal reasoning
 the task requires. These are:
 
@@ -39,9 +35,6 @@ the task requires. These are:
 - Rhetorical-understanding: tasks which require an LLM to reason about legal ar-
     gumentation and analysis (e.g., identifying textualist arguments).
 
-```
-Figure 2: A sample row from LegalBench task type consumercontractsqa
-```
 **Some key observations after performing Exploratory Data Analysis** :
 
 1. The LegalBench dataset comprises 161 tasks, each with varying amounts of asso-
@@ -55,20 +48,21 @@ Figure 2: A sample row from LegalBench task type consumercontractsqa
 4. Similarly, question lengths vary from 500 to 5,000 words, generally shorter than
     the prompts.
 
+![image info](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/snips/llama_chat_app_snip.png)
 
-#### TASKS
+## TASKS
 
-**The next step was to define the nature of the problem. We needed to determine
+The next step was to define the nature of the problem. We needed to determine
 whether it falls under text classification or text generation. For instance, we could
 treat the 155 tasks with categorical answers (such as Yes, No, Relevant, or Irrele-
 vant) as a text classification problem. Alternatively, we could approach all tasks as
 text generation, where the model generates an answer based on a given context.
 Additionally, these tasks could be seen as a form of question-answering system,
-encompassing text classification, task classification, and text generation.**
+encompassing text classification, task classification, and text generation.
 
 ### Task classification
 
-**Summary**
+#### Summary
 
 LegalBench encompasses 161 tasks, ranging from abercrombie to consumer contracts
 q&a and citation predictions [1]. The primary objective is classification: given a prompt,
@@ -80,7 +74,7 @@ HuggingFace, I achieved a promising score of 0.94 on the test dataset (20% split
 model is conveniently accessible on the HuggingFace hub, enabling users to input a
 random prompt and receive the predicted task it aligns with.
 
-**Results & Observations**
+#### Results & Observations
 
 - The experimental results demonstrate the superior performance of the BERT model
     over the Gradient Boosting Classifier in task classification. The BERT model achieves
@@ -97,18 +91,11 @@ random prompt and receive the predicted task it aligns with.
 - Another possible explanation for the difference in performance is that the BERT
     model is able to use contextual information to determine the meaning of words.
     The Gradient Boosting Classifier, on the other hand, only uses the individual words
-
-in the text to make its predictions. This can lead to errors when the meaning of a
-word depends on the context in which it is used.
-```
 - Overall, the results of the experiments suggest that the BERT model is a promising
     tool for task classification. The model is able to achieve high accuracy on a variety
     of tasks and is able to learn from a large dataset.
 
-
-```
-Figure 3: Task classifier BERT model on HF
-```
+![image info](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/snips/task_classifier_hf_page.png)  
 
 ### Answer classification
 
@@ -130,13 +117,9 @@ stance, the task ”cuadrofrroforofn” achieved the lowest score of 0.56, while
 sitioning to transformers, I experimented with distill BERT embeddings and a BERT
 classifier, achieving an impressive score of 0.94 on the test data.
 
-```
-Figure 4: Confusion matrix of few tasks on answer classification
-```
-
 ### Text Generation (Q&A)
 
-**Results & Observations**
+#### Results & Observations
 
 1. Utilizing TFIDF and Gradient Boosting, we achieved a test score of 0.71, indicating
     a slight overfitting from the train score.
@@ -207,23 +190,7 @@ notice and an opportunity to export your content from your Google Account
 using Google Takeout, except in urgent situations such as preventing abuse,
 responding to legal requirements or addressing security and operability issues.
 
-``
-Experiment Number of classes Classification type Model Train score Test score
-1 61 Answer GBD + TFIDF 0.886 0.
-2 61 Answer BERT 0.52 0.
-3 161 Task GBD + TFIDF 0.85 0.
-4 161 Task BERT 0.940 0.
-```
-```
-Table 2: Experiments and results
-```
-
 #### CHALLENGES & LEARNING’S
-
-```
-Figure 5: A sample output from Llama
-```
-## Challenges & Learning’s
 
 - A significant challenge in this task was comprehensively identifying all aspects of
     the problem. The dataset comprised 161 tasks, each unique and potentially seen
@@ -244,16 +211,15 @@ Figure 5: A sample output from Llama
     LLMs, aligning with the format of the data on which these models were trained,
     as detailed in research papers, to achieve optimal results.
 
+
+![image info](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/snips/llama_output.png) 
+
 ## Next Steps
 
-1. Utilize BERT model-generated embeddings for visualization and pattern recog-
-    nition, employing dimensionality reduction techniques to identify clusters and
-    trends in the data.
-2. Experiment with a broader range of machine learning models, including those
-    specifically trained on legal text, available from the HuggingFace model hub.
-3. Explore zero-shot classification with GPT models using LegalBench as prompts,
-    leveraging the model’s ability to generalize to unseen tasks.
-4. Investigate the integration of knowledge graphs to efficiently answer questions
+- **Utilize BERT model**-generatedembeddingsforvisualizationandpatternrecog- nition: After generating embeddings using the BERT model, we can use dimen- sionality reduction techniques such as t-SNE or PCA to reduce the dimensional- ity of the embeddings. This allows you to visualize the embeddings in a lower- dimensional space, making it easier to identify clusters and patterns in the data. By visualizing the embeddings, we can gain insights into how the BERT model represents the data and potentially discover meaningful relationships between different tasks or categories.
+- **Experiment with a broader range of machine learning models**: In addition to the BERT model, we can experiment with a variety of machine learning mod- els, including those specifically trained on legal text, which are available from the HuggingFace model hub. By exploring different models, we can compare their performance and determine which ones are best suited for the task of interest. This can help identify alternative models that may outperform BERT or comple- ment its capabilities in certain areas.
+- **Explore zero-shot classification with GPT models**: Zero-shot classification in- volves using a model to classify inputs into categories that it has not been explicitly trained on. By using GPT models with LegalBench as prompts, we can leverage the model’s ability to generalize to unseen tasks and potentially classify tasks with- out the need for additional training data. This approach can be particularly useful when dealing with new or rare tasks for which labeled data may be limited or unavailable.
+- **Investigate the integration of knowledge graphs**: Knowledge graphs are graph- ical representations of knowledge that capture relationships between entities. By integrating knowledge graphs with transformer models like BERT, we can enhance the model’s understanding of the data and potentially improve its performance on certain tasks. For example, we can use a knowledge graph to provide additional context or background information for a given task, which can help the model generate more accurate responses or predictions.
 
 ## References
 
