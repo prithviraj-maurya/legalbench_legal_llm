@@ -1,7 +1,7 @@
 # LegalBench Data
 
 
-## 2 Summary of the problem
+## Summary of the problem
 
 LegalBench is a benchmark consisting of different legal reasoning tasks. Each task has
 an associated dataset, consisting of input-output pairs, aiming to develop and evalu-
@@ -30,10 +30,6 @@ the task requires. These are:
 - Rule-recall: tasks which require the LLM to generate the correct legal rule on an
     issue in a jurisdiction (e.g., the rule for hearsay in US federal court), or answer a
     question about what the law in a jurisdiction does/does not permit.
-
-
-#### 2 SUMMARY OF THE PROBLEM
-
 - Rule-application: tasks which evaluate whether an LLM can explain reasoning in
     a manner which exhibits the correct legal inferences.
 - Rule-conclusion: tasks which require an LLM to determine the legal outcome of a
@@ -60,9 +56,7 @@ Figure 2: A sample row from LegalBench task type consumercontractsqa
     the prompts.
 
 
-#### 3 TASKS
-
-## 3 Tasks
+#### TASKS
 
 **The next step was to define the nature of the problem. We needed to determine
 whether it falls under text classification or text generation. For instance, we could
@@ -72,9 +66,9 @@ text generation, where the model generates an answer based on a given context.
 Additionally, these tasks could be seen as a form of question-answering system,
 encompassing text classification, task classification, and text generation.**
 
-### 3.1 Task classification
+### Task classification
 
-**3.1.1 Summary**
+**Summary**
 
 LegalBench encompasses 161 tasks, ranging from abercrombie to consumer contracts
 q&a and citation predictions [1]. The primary objective is classification: given a prompt,
@@ -86,7 +80,7 @@ HuggingFace, I achieved a promising score of 0.94 on the test dataset (20% split
 model is conveniently accessible on the HuggingFace hub, enabling users to input a
 random prompt and receive the predicted task it aligns with.
 
-**3.1.2 Results & Observations**
+**Results & Observations**
 
 - The experimental results demonstrate the superior performance of the BERT model
     over the Gradient Boosting Classifier in task classification. The BERT model achieves
@@ -104,19 +98,6 @@ random prompt and receive the predicted task it aligns with.
     model is able to use contextual information to determine the meaning of words.
     The Gradient Boosting Classifier, on the other hand, only uses the individual words
 
-
-3 TASKS 3.1 Task classification
-
-```
-learning rate 2e-
-train batch size 16
-epochs 2
-weight decay 0.
-```
-```
-Table 1: Distill BERT Parameters
-```
-```
 in the text to make its predictions. This can lead to errors when the meaning of a
 word depends on the context in which it is used.
 ```
@@ -124,15 +105,14 @@ word depends on the context in which it is used.
     tool for task classification. The model is able to achieve high accuracy on a variety
     of tasks and is able to learn from a large dataset.
 
+
 ```
 Figure 3: Task classifier BERT model on HF
 ```
 
-3.2 Answer classification 3 TASKS
+### Answer classification
 
-### 3.2 Answer classification
-
-**3.2.1 Summary**
+**Summary**
 
 The next task involves classifying answers based on the corresponding question. While
 this could be further segmented to classify responses for each task individually, for
@@ -154,9 +134,9 @@ classifier, achieving an impressive score of 0.94 on the test data.
 Figure 4: Confusion matrix of few tasks on answer classification
 ```
 
-3 TASKS 3.3 Text Generation (Q&A)
+### Text Generation (Q&A)
 
-**3.2.2 Results & Observations**
+**Results & Observations**
 
 1. Utilizing TFIDF and Gradient Boosting, we achieved a test score of 0.71, indicating
     a slight overfitting from the train score.
@@ -189,24 +169,8 @@ Figure 4: Confusion matrix of few tasks on answer classification
     classification, boasting high accuracy across various tasks and demonstrating ef-
     fective learning from a large dataset.
 
-### 3.3 Text Generation (Q&A)
-
 In the latter part of the project, the focus shifted to treating the problem as a text
 generation task, specifically a question-answering task. This led to the discovery of a
-
-
-3.3 Text Generation (Q&A) 3 TASKS
-
-```
-Experiment Number of classes Classification type Model Train score Test score
-1 61 Answer GBD + TFIDF 0.886 0.
-2 61 Answer BERT 0.52 0.
-3 161 Task GBD + TFIDF 0.85 0.
-4 161 Task BERT 0.940 0.
-```
-```
-Table 2: Experiments and results
-```
 significant paper [3] that detailed training a tiny-Llama model for chat-like applications.
 Given that the tiny-Llama model shared the same architecture as the Llama model, it
 was a natural fit. The process began with loading the dataset, ensuring that the prompt
@@ -243,15 +207,23 @@ notice and an opportunity to export your content from your Google Account
 using Google Takeout, except in urgent situations such as preventing abuse,
 responding to legal requirements or addressing security and operability issues.
 
+``
+Experiment Number of classes Classification type Model Train score Test score
+1 61 Answer GBD + TFIDF 0.886 0.
+2 61 Answer BERT 0.52 0.
+3 161 Task GBD + TFIDF 0.85 0.
+4 161 Task BERT 0.940 0.
+```
+```
+Table 2: Experiments and results
+```
 
-#### 4 CHALLENGES & LEARNING’S
-
-### Response:
+#### CHALLENGES & LEARNING’S
 
 ```
 Figure 5: A sample output from Llama
 ```
-## 4 Challenges & Learning’s
+## Challenges & Learning’s
 
 - A significant challenge in this task was comprehensively identifying all aspects of
     the problem. The dataset comprised 161 tasks, each unique and potentially seen
@@ -264,13 +236,6 @@ Figure 5: A sample output from Llama
 - The most valuable takeaway from the project was gaining a deep understanding of
     the LegalBench dataset and how it can effectively evaluate Legal Language Models
     (LLMs).
-
-
-#### 5 NEXT STEPS
-
-```
-Figure 6: Streamlit chat app build on Llama
-```
 - An essential learning experience was evaluating the model’s performance and in-
     terpreting the results. This involved exploring how the model performed on each
     task and investigating why some tasks yielded better results than others.
@@ -279,7 +244,7 @@ Figure 6: Streamlit chat app build on Llama
     LLMs, aligning with the format of the data on which these models were trained,
     as detailed in research papers, to achieve optimal results.
 
-## 5 Next Steps
+## Next Steps
 
 1. Utilize BERT model-generated embeddings for visualization and pattern recog-
     nition, employing dimensionality reduction techniques to identify clusters and
@@ -289,21 +254,6 @@ Figure 6: Streamlit chat app build on Llama
 3. Explore zero-shot classification with GPT models using LegalBench as prompts,
     leveraging the model’s ability to generalize to unseen tasks.
 4. Investigate the integration of knowledge graphs to efficiently answer questions
-
-
-#### REFERENCES
-
-```
-and potentially enhance the representation of data when combined with trans-
-former models.
-```
-## 6 Acknowledgements
-
-Finally I would like to thank Jonathan for giving me this interesting task. Also would like
-to thank him for his intermediate feedback which helped a lot to steer me in the right
-direction. Interviewing with Jonathan and Fuad was also very helpful as some of the
-questions they asked in the interviews was something I asked myself while performing
-these experiments.
 
 ## References
 
