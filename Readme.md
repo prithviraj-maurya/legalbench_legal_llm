@@ -1,5 +1,14 @@
 ![image info](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/snips/legalbench_logo.png)
 
+### Important Links:
+
+1. [Exploratory Analysis Notebook](https://colab.research.google.com/drive/1vQY0F4kEV3j500UtKoiWZjVefQZAZ_Bu?usp=sharing)
+2. [Answer Classification ML Notebook](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/legalbench_answer_classifier.ipynb)
+3. [Answer Classiication BERT Notebook](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/legalbench-answer-classification-bert.ipynb)
+4. [Task Classification Notebook](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/legalbench_task_classifier.ipynb)
+5. [Llama Legal AI Chat App](https://legalbench-legal-llm.streamlit.app/)
+
+
 ## Summary of the problem
 
 LegalBench is a benchmark consisting of different legal reasoning tasks. Each task has
