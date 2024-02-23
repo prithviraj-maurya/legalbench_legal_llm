@@ -2,7 +2,7 @@
 
 ### Important Links:
 
-1. [Exploratory Analysis Notebook](https://colab.research.google.com/drive/1vQY0F4kEV3j500UtKoiWZjVefQZAZ_Bu?usp=sharing)
+1. [Exploratory Analysis Notebook](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/legalbench_data_eda.ipynb)
 2. [Answer Classification ML Notebook](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/legalbench_answer_classifier.ipynb)
 3. [Answer Classiication BERT Notebook](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/legalbench-answer-classification-bert.ipynb)
 4. [Task Classification Notebook](https://github.com/prithviraj-maurya/legalbench_legal_llm/blob/main/legalbench_task_classifier.ipynb)
